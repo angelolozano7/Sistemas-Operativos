@@ -67,21 +67,58 @@ Este programa permite simular y comparar distintos algoritmos de planificación 
 
   - Tiempos promedio
 6.) Ejemplo salida:
-    FCFS
+ FCFS
 
-    Gantt Chart
-     |s:0 p1| |s:1 p1| ... |s:5 p1|
-    
-    Tabla Cálculos de Tiempos
-    
-    ID Process	Burst Time	Waiting Time	Turnaround Time	Response time
-    P[1]		5		0		5		0
-    ...
-    
-    Average Waiting Time: X
-    Average Turnaround Time: Y
-    Average Response Time: Z
-
+   Gantt Chart
+   
+    |s:0 p1|  |s:1 p1|  |s:2 p1|  |s:3 p1|  |s:4 p1|  |s:5 p2|  |s:6 p2|  |s:7 p2|  |s:8 p3|  |s:9 p3| 
+   
+   Tabla Cálculos de Tiempos
+   
+   ID Process      Burst Time      Waiting Time    Turnaround Time Response time
+   P[1]            5               0               5               0
+   P[2]            3               3               6               3
+   P[3]            2               4               6               4
+   
+   Average Waiting Time:2
+   Average Turnaround Time:5
+   Average Response Time:2
+   --------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+   SJF
+   
+   Gantt Chart
+   
+    |s:0 p3|  |s:1 p3|  |s:2 p2|  |s:3 p2|  |s:4 p2|  |s:5 p1|  |s:6 p1|  |s:7 p1|  |s:8 p1|  |s:9 p1| 
+   
+   Tabla Cálculos de Tiempos
+   
+   ID Process      Burst Time      Waiting Time    Turnaround Time Response time
+   P[3]            2               0               2               0
+   P[2]            3               0               3               0
+   P[1]            5               5               10              5
+   
+   Average Waiting Time:1
+   Average Turnaround Time:5
+   Average Response Time: 1
+   --------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+   PRIORITY
+   
+   Gantt Chart
+   
+    |s:1 p1|  |s:2 p1|  |s:3 p1|  |s:4 p1|  |s:5 p3|  |s:6 p3|  |s:7 p1|  |s:8 p2|  |s:9 p2|  |s:10 p2| 
+   
+   Tabla Cálculos de Tiempos
+   
+   ID Process      Burst Time      Waiting Time    Turnaround Time Response time
+   P[3]            2               0               2               0
+   P[1]            5               3               8               0
+   P[2]            3               5               8               5
+   
+   Average Waiting Time: 2.66667
+   Average Turnaround Time: 6
+   Average Response Time: 1
 ## Notas:
 - Cada algoritmo es ejecutado usando std::thread para mostrar independencia de ejecución.
 
